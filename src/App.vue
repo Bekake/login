@@ -1,29 +1,56 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <pic/>
 </template>
-
+<script>
+import pic from '@/components/pic.vue'
+export default{
+    components: {pic},
+}
+</script>
 <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@media (max-width: 1300px){
+    .forhr{
+        display: none;
+    }
+}
+
+
+.container{
+    box-shadow: 0 0 3px rgb(77, 76, 177);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    min-width: 327px;
+}
+.fade-leave-active {
+    animation: leaving 0.4s;
+}
+.fade-enter-active {
+    animation: entering 0.4s;
+}
+@keyframes leaving {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(90deg)
+    }
+}
+@keyframes entering {
+    0% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0);
+    }
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
 nav a.router-link-exact-active {
   color: #42b983;
 }
